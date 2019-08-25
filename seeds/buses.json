@@ -1,0 +1,65 @@
+[
+  {
+    "realm": "string",
+    "username": "selam_bus",
+    "email": "selam_bus@gmail.com",
+    "emailVerified": true,
+    "password": "password"
+  },
+  {
+    "realm": "string",
+    "username": "golden_bus",
+    "email": "golden_bus@gmail.com",
+    "emailVerified": true,
+    "password": "password"
+  },
+  {
+    "realm": "string",
+    "username": "limalimo_bus",
+    "email": "limalimo_bus@gmail.com",
+    "emailVerified": true,
+    "password": "password"
+  },
+  {
+    "realm": "string",
+    "username": "walia_bus",
+    "email": "walia_bus@gmail.com",
+    "emailVerified": true,
+    "password": "password"
+  },
+  {
+    "realm": "string",
+    "username": "ethio_bus",
+    "email": "ethio_bus@gmail.com",
+    "emailVerified": true,
+    "password": "password"
+  },
+  {
+    "realm": "string",
+    "username": "sky_bus",
+    "email": "sky_bus@gmail.com",
+    "emailVerified": true,
+    "password": "password"
+  },
+  {
+    "realm": "string",
+    "username": "abay_bus",
+    "email": "abay_bus@gmail.com",
+    "emailVerified": true,
+    "password": "password"
+  },
+  {
+    "realm": "string",
+    "username": "zemen_bus",
+    "email": "zemen_bus@gmail.com",
+    "emailVerified": true,
+    "password": "password"
+  },
+  {
+    "realm": "string",
+    "username": "geda_bus",
+    "email": "gedah_bus@gmail.com",
+    "emailVerified": true,
+    "password": "password"
+  }
+]

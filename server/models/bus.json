@@ -1,0 +1,98 @@
+{
+  "name": "Bus",
+  "plural": "buses",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "model": {
+      "type": "string"
+    },
+    "license_plate_code": {
+      "type": "string"
+    },
+    "license_plate_number": {
+      "type": "string"
+    },
+    "license_plate_location": {
+      "type": "string"
+    },
+    "color": {
+      "type": "string"
+    },
+    "rows": {
+      "type": "number"
+    },
+    "columns": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "seats": {
+      "type": "hasMany",
+      "model": "Seat",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    }
+  },
+  "acls": [],
+  "methods": {
+    "fetchBuses": {
+      "accepts": [
+        {
+          "arg": "userId",
+          "type": "any",
+          "description": "auto-derived from accesstoken if you have logged in."
+        }
+      ],
+      "returns": [
+        {
+          "arg": "buses",
+          "type": "array",
+          "root": true,
+          "description": "the buses you have"
+        }
+      ],
+      "description": "fetches the buses that belong to your journies",
+      "http": [
+        {
+          "path": "/fetchBuses",
+          "verb": "get"
+        }
+      ]
+    },
+    "insertBus": {
+      "accepts": [
+        {
+          "arg": "newBusInstance",
+          "type": "any",
+          "description": "the new bus instance to be created"
+        },
+        {
+          "arg": "userId",
+          "type": "any",
+          "description": "auto-derived from accesstoken if you have logged in."
+        }
+      ],
+      "returns": [],
+      "description": "makes a new instance that belongs to the bus owner who has logged in",
+      "http": [
+        {
+          "path": "/insertBus",
+          "verb": "post"
+        }
+      ]
+    }
+  }
+}

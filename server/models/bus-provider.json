@@ -1,0 +1,27 @@
+{
+  "name": "BusProvider",
+  "plural": "BusProviders",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "location": {
+      "type": "string",
+      "default": "unknown"
+    },
+    "description": {
+      "type": "string",
+      "default": "No Description"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

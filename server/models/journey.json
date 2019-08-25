@@ -1,0 +1,134 @@
+{
+  "name": "Journey",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "plural": "Journies",
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "default": "unnamed journey"
+    },
+    "description": {
+      "type": "string",
+      "default": "none"
+    },
+    "defaultPrice": {
+      "type": "string",
+      "required": true
+    },
+    "journeyDate": {
+      "type": "date",
+      "required": true
+    },
+    "returningDate": {
+      "type": "date"
+    },
+    "totalKms": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "sourceCity": {
+      "type": "hasOne",
+      "model": "City",
+      "foreignKey": "sourceCityFor"
+    },
+    "destinationCity": {
+      "type": "hasOne",
+      "model": "City",
+      "foreignKey": "destinationCityFor"
+    },
+    "tickets": {
+      "type": "hasMany",
+      "model": "Ticket",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    }
+  },
+  "acls": [],
+  "methods": {
+    "fetchJournies": {
+      "accepts": [
+        {
+          "arg": "userId",
+          "type": "any",
+          "description": "auto-derived from accesstoken if you have logged in."
+        }
+      ],
+      "returns": [
+        {
+          "arg": "journies",
+          "type": "array",
+          "root": true,
+          "description": "the journies you have"
+        }
+      ],
+      "description": "fetches the journies that belong to your journies",
+      "http": [
+        {
+          "path": "/fetchJournies",
+          "verb": "get"
+        }
+      ]
+    },
+    "fetchPopularDestinations": {
+      "accepts": [
+        {
+          "arg": "journeyDate",
+          "type": "any",
+          "description": "auto-derived from accesstoken if you have logged in."
+        }
+      ],
+      "returns": [
+        {
+          "arg": "popular-cities",
+          "type": "array",
+          "root": true,
+          "description": "Popular Cities"
+        }
+      ],
+      "description": "fetches the Popular Destination Cities",
+      "http": [
+        {
+          "path": "/fetchPopularDestinations",
+          "verb": "get"
+        }
+      ]
+    },
+    "insertJourney": {
+      "accepts": [
+        {
+          "arg": "newJourneyInstance",
+          "type": "any",
+          "description": "the new journey instance to be created"
+        },
+        {
+          "arg": "userId",
+          "type": "any",
+          "description": "auto-derived from accesstoken if you have logged in."
+        }
+      ],
+      "returns": [
+        {
+          "arg": "new Journey id",
+          "type": "string",
+          "root": true,
+          "description": "New Journey Id"
+        }
+      ],
+      "description": "makes a new instance that belongs to the bus owner who has logged in",
+      "http": [
+        {
+          "path": "/insertJourney",
+          "verb": "post"
+        }
+      ]
+    }
+  }
+}

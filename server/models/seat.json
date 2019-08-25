@@ -1,0 +1,29 @@
+{
+  "name": "Seat",
+  "plural": "seats",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "default": "unnamed seat"
+    },
+    "description": {
+      "type": "string",
+      "default": "none"
+    },
+    "row": {
+      "type": "number"
+    },
+    "column": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

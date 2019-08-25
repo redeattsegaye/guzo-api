@@ -1,0 +1,70 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "User": {
+    "dataSource": "db"
+  },
+  "AccessToken": {
+    "dataSource": "db",
+    "public": false
+  },
+  "ACL": {
+    "dataSource": "db",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "db",
+    "public": false,
+    "options": {
+      "strictObjectIDCoercion": true
+    }
+  },
+  "Role": {
+    "dataSource": "db",
+    "public": false
+  },
+  "BusProvider": {
+    "dataSource": "db",
+    "public": true
+  },
+  "BusOwner": {
+    "dataSource": "db",
+    "public": true
+  },
+  "City": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Seat": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Ticket": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Journey": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Bus": {
+    "dataSource": "db",
+    "public": true
+  },
+  "TicketPurhaseAttempt": {
+    "dataSource": "db",
+    "public": true
+  }
+}

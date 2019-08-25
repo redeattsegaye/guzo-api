@@ -1,0 +1,56 @@
+{
+  "name": "BusOwner",
+  "base": "User",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {},
+  "validations": [],
+  "relations": {
+    "buses": {
+      "type": "hasMany",
+      "model": "Bus",
+      "foreignKey": "buses",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "journies": {
+      "type": "hasMany",
+      "model": "Journey",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    }
+  },
+  "acls": [
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "find"
+    }
+  ],
+  "methods": {
+    "fetchBusProviders": {
+      "accepts": [],
+      "returns": [
+        {
+          "arg": "data",
+          "type": "BusOwner",
+          "root": true
+        }
+      ],
+      "description": "Fetches all available bus providers",
+      "http": [
+        {
+          "path": "/fetchBusProviders",
+          "verb": "get"
+        }
+      ]
+    }
+  }
+}

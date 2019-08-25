@@ -1,0 +1,51 @@
+{
+  "name": "Ticket",
+  "plural": "tickets",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "default": "unnamed seat's ticket"
+    },
+    "description": {
+      "type": "none",
+      "default": "none"
+    },
+    "row": {
+      "type": "number"
+    },
+    "column": {
+      "type": "number"
+    },
+    "price": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "ticketPurhaseAttempts": {
+      "type": "hasMany",
+      "model": "TicketPurhaseAttempt",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "journey": {
+      "type": "belongsTo",
+      "model": "TicketPurhaseAttempt",
+      "foreignKey": ""
+    },
+    "boughtBy": {
+      "type": "hasOne",
+      "model": "TicketPurhaseAttempt",
+      "foreignKey": "boughtBy"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

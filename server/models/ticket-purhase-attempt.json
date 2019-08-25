@@ -1,0 +1,66 @@
+{
+  "name": "TicketPurhaseAttempt",
+  "plural": "TicketPurchaseAttempts",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "transaction_id": {
+      "type": "string",
+      "required": true
+    },
+    "bank_name": {
+      "type": "string",
+      "default": "CBE"
+    },
+    "transaction_date": {
+      "type": "date",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "busOwner": {
+      "type": "belongsTo",
+      "model": "BusOwner",
+      "foreignKey": ""
+    },
+    "user": {
+      "type": "belongsTo",
+      "model": "User",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    }
+  },
+  "acls": [],
+  "methods": {
+    "fetchTicketPurchaseAttempts": {
+      "accepts": [
+        {
+          "arg": "userId",
+          "type": "any",
+          "description": "auto-derived from accesstoken if you have logged in."
+        }
+      ],
+      "returns": [
+        {
+          "arg": "purchase_attempts",
+          "type": "array",
+          "root": true,
+          "description": "the ticket attempts you have"
+        }
+      ],
+      "description": "fetches the ticket purchase attempts (payment transactions) that belong to your journies",
+      "http": [
+        {
+          "path": "/fetchTicketPurchaseAttempts",
+          "verb": "get"
+        }
+      ]
+    }
+  }
+}
