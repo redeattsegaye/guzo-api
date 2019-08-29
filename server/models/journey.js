@@ -39,6 +39,33 @@ module.exports = function(Journey) {
 
 
 
+  Journey.searchJournies = function(sourceCityName, destinationCityName, callback) {
+    Journey.find({
+      include: [
+        "sourceCity",
+        "destinationCity",
+        "tickets"
+      ]
+    }, (err, Journies) => {
+      if (err) {
+        callback(err);
+      } else {
+        Promise.all(
+          Array.from(Journies).map(async x => {
+            const sourceCity = await x.sourceCity.get()
+            const destinationCity = await x.destinationCity.get()
+            if (sourceCity != null && destinationCity != null)
+              if(sourceCity.name == sourceCityName && destinationCity.name == destinationCityName)
+                return x
+            return false
+          })
+        ).then(newList => {
+          callback(null, newList.filter(x => !!x));          
+        })
+      }
+    });
+  };
+
 
   Journey.fetchPopularDestinations = function(journeyDate, callback) {
     journeyDate = new Date(journeyDate);

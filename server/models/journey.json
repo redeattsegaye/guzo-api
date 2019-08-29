@@ -1,8 +1,8 @@
 {
   "name": "Journey",
+  "plural": "Journies",
   "base": "PersistedModel",
   "idInjection": true,
-  "plural": "Journies",
   "options": {
     "validateUpsert": true
   },
@@ -127,6 +127,43 @@
         {
           "path": "/insertJourney",
           "verb": "post"
+        }
+      ]
+    },
+    "searchJournies": {
+      "accepts": [
+        {
+          "arg": "sourceCityName",
+          "type": "string",
+          "required": true,
+          "description": "",
+          "http": {
+            "source": "query"
+          }
+        },
+        {
+          "arg": "destinationCityName",
+          "type": "string",
+          "required": true,
+          "description": "",
+          "http": {
+            "source": "query"
+          }
+        }
+      ],
+      "returns": [
+        {
+          "arg": "data",
+          "type": "array",
+          "root": true,
+          "description": ""
+        }
+      ],
+      "description": "",
+      "http": [
+        {
+          "path": "/searchJournies",
+          "verb": "get"
         }
       ]
     }
